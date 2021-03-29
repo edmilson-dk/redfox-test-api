@@ -13,6 +13,8 @@ class PokemonController {
     const { filename } = req.file;
     const [ originaFileName ] = filename.split('.');
     const imageName = `${originaFileName}.webp`;
+    
+    console.log(req.file)
 
     try {
       if ((await this.pokemonServices.existsPokemon({ name: data.name, userId }))) {
