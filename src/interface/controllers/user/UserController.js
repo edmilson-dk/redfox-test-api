@@ -9,7 +9,8 @@ class UserController {
 
   async store(req, res) {
     const { name, email, password } = req.body;
-
+    console.log(name, email, password);
+    
     try {
       if (!isValidUserData(name, email, password)) {
         return res.status(401).json({ error: 'Unspecified or incorrectly formatted data' });
@@ -27,6 +28,7 @@ class UserController {
      
       return res.status(201).json({ name, email, token });
     } catch(err) {
+      conole.log(err)
       return res.status(500).json({ error: 'Internal error '});
     }
   }
@@ -54,6 +56,7 @@ class UserController {
         token,
       });
     } catch (err) {
+      conole.log(err)
       return res.status(500).json({ error: 'Internal error' });
     }
   }
