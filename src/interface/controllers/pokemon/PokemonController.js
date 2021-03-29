@@ -26,6 +26,7 @@ class PokemonController {
       }
 
       await this.pokemonServices.create({ userId, imageName, ...data });
+      console.log(imageName);
 
       return res.status(201).json({ message: 'Pokemon created with success'});
     } catch(err) {
