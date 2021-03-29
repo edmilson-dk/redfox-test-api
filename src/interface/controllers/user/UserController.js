@@ -28,7 +28,7 @@ class UserController {
      
       return res.status(201).json({ name, email, token });
     } catch(err) {
-      conole.log(err)
+      console.log(err)
       return res.status(500).json({ error: 'Internal error '});
     }
   }
@@ -56,7 +56,7 @@ class UserController {
         token,
       });
     } catch (err) {
-      conole.log(err)
+      console.log(err)
       return res.status(500).json({ error: 'Internal error' });
     }
   }
