@@ -13,8 +13,6 @@ class PokemonController {
     const { filename } = req.file;
     const [ originaFileName ] = filename.split('.');
     const imageName = `${originaFileName}.webp`;
-    
-    console.log(req.file)
 
     try {
       if ((await this.pokemonServices.existsPokemon({ name: data.name, userId }))) {
@@ -28,7 +26,6 @@ class PokemonController {
       }
 
       await this.pokemonServices.create({ userId, imageName, ...data });
-      console.log(imageName);
 
       return res.status(201).json({ message: 'Pokemon created with success'});
     } catch(err) {
